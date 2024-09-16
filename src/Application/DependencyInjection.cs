@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using CleanArchitecture.Application.Common.Behaviours;
+using CleanArchitecture.Application.Common.Mappings;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -10,6 +11,7 @@ public static class DependencyInjection
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+        services.AddAutoMapper(typeof(MappingProfile));
 
         services.AddMediatR(cfg => {
             cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
